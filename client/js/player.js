@@ -44,7 +44,7 @@ class Player {
             this.sprite.position.y = nextY;
         }
 
-        // this.updateFire();
+        //  this.updateFire();
         this.updatePlayerDirection();
     }
 
@@ -79,8 +79,7 @@ class Player {
             this.sprite.play();
             this.directionY = this.keyCodes[key.keyCode];
         } else if (key.keyCode === 32) {
-            this.sprite.textures = this.sheet.animations['death'];
-            this.sprite.play();
+            this.death();
         }
     }
 
@@ -93,17 +92,17 @@ class Player {
             this.directionX = this.keyCodes[37];
         else {
             this.directionX = 0;
-            this.sprite.stop();
+            // this.sprite.stop();
         }
 
         if (!this.keyState[38] && this.keyState[40]) {
             this.directionY = this.keyCodes[40];
         } else if (this.keyState[38] && !this.keyState[40]) {
             this.directionY = this.keyCodes[38];
-            this.sprite.stop();
+            // this.sprite.stop();
         } else {
             this.directionY = 0;
-            this.sprite.stop();
+            // this.sprite.stop();
         }
     }
 
@@ -121,9 +120,18 @@ class Player {
 
         // http://www.somethinghitme.com/2013/11/13/snippets-i-always-forget-movement/
 
-        this.sprite.rotation = radians;
+        // this.sprite.rotation = radians;
     }
 
+
+
+    death() {
+        this.sprite.textures = this.sheet.animations['death'];
+        this.sprite.play();
+        this.sprite.onComplete = () => {
+            this.sprite.stop();
+        } ;
+    }
 }
 
 export default Player;
