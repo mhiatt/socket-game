@@ -1,0 +1,23 @@
+{
+  "name": "socket-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "pixi.js": "^4.8.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "babel-loader": "^8.0.5",
+    "copy-webpack-plugin": "^5.0.2",
+    "file-loader": "^3.0.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "scripts": {
+    "start:local": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC"
+}

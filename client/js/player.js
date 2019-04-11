@@ -3,7 +3,7 @@ import stage from './stage';
 class Player {
     constructor() {
         this.sheet = PIXI.loader.resources['playerSheet'].spritesheet;
-        // this.sprite = new PIXI.Sprite(PIXI.loader.resources['playerSheet'].textures['SouthWalk1']);
+        this.sprite = new PIXI.Sprite(PIXI.loader.resources['playerSheet'].textures['SouthWalk1']);
         this.sprite = new PIXI.AnimatedSprite(this.sheet.animations['walkNorth']);
 
         this.sprite.anchor.set(0.5, 0.5);

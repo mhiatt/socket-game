@@ -11,7 +11,6 @@ var cloudManager;
 var player;
 
 PIXI.loader
-    .add('rocket', '../images/rocket.png')
     .add('playerSheet', '../images/playerSheet.json')
     .load(init);
 
