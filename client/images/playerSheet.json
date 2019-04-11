@@ -1516,6 +1516,47 @@
             "NorthWalk7",
             "NorthWalk8",
             "NorthWalk9"
+        ],
+        "walkSouth": [
+            "SouthWalk1",
+            "SouthWalk2",
+            "SouthWalk3",
+            "SouthWalk4",
+            "SouthWalk5",
+            "SouthWalk6",
+            "SouthWalk7",
+            "SouthWalk8",
+            "SouthWalk9"
+        ],
+        "walkEast": [
+            "EastWalk1",
+            "EastWalk2",
+            "EastWalk3",
+            "EastWalk4",
+            "EastWalk5",
+            "EastWalk6",
+            "EastWalk7",
+            "EastWalk8",
+            "EastWalk9"
+        ],
+        "walkWest": [
+            "WestWalk1",
+            "WestWalk2",
+            "WestWalk3",
+            "WestWalk4",
+            "WestWalk5",
+            "WestWalk6",
+            "WestWalk7",
+            "WestWalk8",
+            "WestWalk9"
+        ],
+        "death": [
+            "Death1",
+            "Death2",
+            "Death3",
+            "Death4",
+            "Death5",
+            "Death6"
         ]
     },
     "meta": {

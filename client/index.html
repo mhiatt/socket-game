@@ -13,61 +13,61 @@
     </head>
     <body>
         <script type="text/javascript">
-            function init(usePng8) {
-                const stage = new PIXI.Container();
+            // function init(usePng8) {
+            //     const stage = new PIXI.Container();
 
-                let animatedCapguy, background, spritesheetname, player;
-                // add the canvas that Pixi automatically created for you to the HTML document
-                // const renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
-                // document.body.appendChild(renderer.view);
-
-
-
-                spritesheetname = usePng8 ? "images/spritesheet-png8.json" : "images/spritesheet.json";
-
-                // load sprite sheet image + data file, call setup() if completed
-                PIXI.loader
-                    .add(spritesheetname)
-                    .add('images/rocket.png')
-                    .load(setup);
+            //     let animatedCapguy, background, spritesheetname, player;
+            //     // add the canvas that Pixi automatically created for you to the HTML document
+            //     // const renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
+            //     // document.body.appendChild(renderer.view);
 
 
-                function setup() {
-                    // the sprite sheet we've just loaded:
-                    let sheet = PIXI.loader.resources[spritesheetname].spritesheet;
 
-                    // initialize background sprite
-                    background = new PIXI.Sprite(sheet.textures["background.png"]);
-                    stage.addChild(background);
+            //     spritesheetname = usePng8 ? "images/spritesheet-png8.json" : "images/spritesheet.json";
 
-                    // scale stage container that it fits into the view
-                    stage.scale.x = renderer.view.width / background.width;
-                    stage.scale.y = renderer.view.height / background.height;
+            //     // load sprite sheet image + data file, call setup() if completed
+            //     PIXI.loader
+            //         .add(spritesheetname)
+            //         .add('images/rocket.png')
+            //         .load(setup);
 
-                    // create an animated sprite
-                    animatedCapguy = new PIXI.extras.AnimatedSprite(sheet.animations["capguy"]);
 
-                    // configure + start animation:
-                    animatedCapguy.animationSpeed = 0.167;                  // 6 fps
-                    animatedCapguy.position.set(0, background.height - 50); // almost bottom-left corner of the canvas
-                    animatedCapguy.play();
+            //     function setup() {
+            //         // the sprite sheet we've just loaded:
+            //         let sheet = PIXI.loader.resources[spritesheetname].spritesheet;
 
-                    player = new Player();
+            //         // initialize background sprite
+            //         background = new PIXI.Sprite(sheet.textures["background.png"]);
+            //         stage.addChild(background);
 
-                    // add it to the stage and render!
-                    stage.addChild(animatedCapguy);
+            //         // scale stage container that it fits into the view
+            //         stage.scale.x = renderer.view.width / background.width;
+            //         stage.scale.y = renderer.view.height / background.height;
 
-                    renderer.render(stage);
-                    renderer.ticker.add(delta => gameLoop(delta));
-                }
+            //         // create an animated sprite
+            //         animatedCapguy = new PIXI.extras.AnimatedSprite(sheet.animations["capguy"]);
 
-                function gameLoop(delta) {
-                    animatedCapguy.x = (animatedCapguy.x + 5 * delta) % (background.width + 200);
+            //         // configure + start animation:
+            //         animatedCapguy.animationSpeed = 0.167;                  // 6 fps
+            //         animatedCapguy.position.set(0, background.height - 50); // almost bottom-left corner of the canvas
+            //         animatedCapguy.play();
 
-                    player.update();
-                    renderer.render(stage);
-                }
-            }
+            //         player = new Player();
+
+            //         // add it to the stage and render!
+            //         stage.addChild(animatedCapguy);
+
+            //         renderer.render(stage);
+            //         renderer.ticker.add(delta => gameLoop(delta));
+            //     }
+
+            //     function gameLoop(delta) {
+            //         animatedCapguy.x = (animatedCapguy.x + 5 * delta) % (background.width + 200);
+
+            //         player.update();
+            //         renderer.render(stage);
+            //     }
+            // }
 
             // init(false);
 

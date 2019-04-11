@@ -3,12 +3,12 @@ import stage from './stage';
 class Player {
     constructor() {
         this.sheet = PIXI.loader.resources['playerSheet'].spritesheet;
-        this.sprite = new PIXI.Sprite(PIXI.loader.resources['playerSheet'].textures['SouthWalk1']);
-        this.sprite = new PIXI.AnimatedSprite(this.sheet.animations['walkNorth']);
+        // this.sprite = new PIXI.Sprite(PIXI.loader.resources['playerSheet'].textures['SouthWalk1']);
+        this.sprite = new PIXI.extras.AnimatedSprite(this.sheet.animations['walkNorth']);
 
         this.sprite.anchor.set(0.5, 0.5);
         this.sprite.position.set(renderer.width * 0.2, renderer.height * 0.4);
-        // this.sprite.scale.set(0.4, 0.4);
+        this.sprite.scale.set(2.4, 2.4);
 
         this.keyState = {32: false, 37: false, 38: false, 39: false, 40: false};
         this.keyCodes = {37: -1, 38: -1, 39: 1, 40: 1};
@@ -44,7 +44,7 @@ class Player {
             this.sprite.position.y = nextY;
         }
 
-        this.updateFire();
+        // this.updateFire();
         this.updatePlayerDirection();
     }
 
@@ -62,10 +62,26 @@ class Player {
     onKeyDown(key) {
         this.keyState[key.keyCode] = true;
 
-        if (key.keyCode == 37 || key.keyCode == 39)
+        if (key.keyCode === 37) {
+            this.sprite.textures = this.sheet.animations['walkWest'];
+            this.sprite.play();
             this.directionX = this.keyCodes[key.keyCode];
-        else if (key.keyCode == 38 || key.keyCode == 40)
+        } else if (key.keyCode === 39) {
+            this.sprite.textures = this.sheet.animations['walkEast'];
+            this.sprite.play();
+            this.directionX = this.keyCodes[key.keyCode];
+        } else if (key.keyCode == 38) {
+            this.sprite.textures = this.sheet.animations['walkNorth'];
+            this.sprite.play();
             this.directionY = this.keyCodes[key.keyCode];
+        } else if (key.keyCode === 40) {
+            this.sprite.textures = this.sheet.animations['walkSouth'];
+            this.sprite.play();
+            this.directionY = this.keyCodes[key.keyCode];
+        } else if (key.keyCode === 32) {
+            this.sprite.textures = this.sheet.animations['death'];
+            this.sprite.play();
+        }
     }
 
     onKeyUp(key) {
@@ -75,13 +91,20 @@ class Player {
             this.directionX = this.keyCodes[39];
         else if (this.keyState[37] && !this.keyState[39])
             this.directionX = this.keyCodes[37];
-        else this.directionX = 0;
+        else {
+            this.directionX = 0;
+            this.sprite.stop();
+        }
 
-        if (!this.keyState[38] && this.keyState[40])
+        if (!this.keyState[38] && this.keyState[40]) {
             this.directionY = this.keyCodes[40];
-        else if (this.keyState[38] && !this.keyState[40])
+        } else if (this.keyState[38] && !this.keyState[40]) {
             this.directionY = this.keyCodes[38];
-        else this.directionY = 0;
+            this.sprite.stop();
+        } else {
+            this.directionY = 0;
+            this.sprite.stop();
+        }
     }
 
     mouseMove(event) {
