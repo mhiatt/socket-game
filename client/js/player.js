@@ -1,5 +1,12 @@
 import stage from './stage';
 
+const directions = {
+    NORTH: 'NORTH',
+    SOUTH: 'SOUTH',
+    EAST: 'EAST',
+    WEST: 'WEST'
+};
+
 class Player {
     constructor() {
         this.sheet = PIXI.loader.resources['playerSheet'].spritesheet;
@@ -13,6 +20,7 @@ class Player {
         this.keyState = {32: false, 37: false, 38: false, 39: false, 40: false};
         this.keyCodes = {37: -1, 38: -1, 39: 1, 40: 1};
 
+        this.currentDirection = directions.NORTH;
         this.directionX = 0;
         this.directionY = 0;
         this.speed = 10;
@@ -29,6 +37,7 @@ class Player {
 
         window.addEventListener('keydown', this.onKeyDown.bind(this));
         window.addEventListener('keyup', this.onKeyUp.bind(this));
+        window.addEventListener('click', this.mouseClick.bind(this));
         window.addEventListener('mousemove', this.mouseMove.bind(this));
     }
 
@@ -64,18 +73,26 @@ class Player {
 
         if (key.keyCode === 37) {
             this.sprite.textures = this.sheet.animations['walkWest'];
+            this.currentDirection = directions.WEST;
+
             this.sprite.play();
             this.directionX = this.keyCodes[key.keyCode];
         } else if (key.keyCode === 39) {
             this.sprite.textures = this.sheet.animations['walkEast'];
+            this.currentDirection = directions.EAST;
+
             this.sprite.play();
             this.directionX = this.keyCodes[key.keyCode];
         } else if (key.keyCode == 38) {
             this.sprite.textures = this.sheet.animations['walkNorth'];
+            this.currentDirection = directions.NORTH;
+
             this.sprite.play();
             this.directionY = this.keyCodes[key.keyCode];
         } else if (key.keyCode === 40) {
             this.sprite.textures = this.sheet.animations['walkSouth'];
+            this.currentDirection = directions.SOUTH;
+
             this.sprite.play();
             this.directionY = this.keyCodes[key.keyCode];
         } else if (key.keyCode === 32) {
@@ -92,7 +109,7 @@ class Player {
             this.directionX = this.keyCodes[37];
         else {
             this.directionX = 0;
-            // this.sprite.stop();
+            this.sprite.stop();
         }
 
         if (!this.keyState[38] && this.keyState[40]) {
@@ -102,8 +119,37 @@ class Player {
             // this.sprite.stop();
         } else {
             this.directionY = 0;
-            // this.sprite.stop();
+            this.sprite.stop();
         }
+    }
+
+    mouseClick() {
+        switch (this.currentDirection) {
+            case directions.NORTH: {
+                this.sprite.textures = this.sheet.animations.swordNorth;
+
+                break;
+            }
+            case directions.SOUTH: {
+                this.sprite.textures = this.sheet.animations.swordSouth;
+
+                break;
+            }
+            case directions.EAST: {
+                this.sprite.textures = this.sheet.animations.swordEast;
+
+                break;
+            }
+            case directions.WEST: {
+                this.sprite.textures = this.sheet.animations.swordWest;
+
+                break;
+            }
+        }
+        
+        this.sprite.loop = false;
+        this.sprite.play();
+        
     }
 
     mouseMove(event) {

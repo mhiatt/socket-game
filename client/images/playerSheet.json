@@ -1506,6 +1506,38 @@
         }
     },
     "animations": {
+        "swordNorth": [
+            "NorthSword1",
+            "NorthSword2",
+            "NorthSword3",
+            "NorthSword4",
+            "NorthSword5",
+            "NorthSword6"
+        ],
+        "swordSouth": [
+            "SouthSword1",
+            "SouthSword2",
+            "SouthSword3",
+            "SouthSword4",
+            "SouthSword5",
+            "SouthSword6"
+        ],
+        "swordEast": [
+            "EastSword1",
+            "EastSword2",
+            "EastSword3",
+            "EastSword4",
+            "EastSword5",
+            "EastSword6"
+        ],
+        "swordWest": [
+            "WestSword1",
+            "WestSword2",
+            "WestSword3",
+            "WestSword4",
+            "WestSword5",
+            "WestSword6"
+        ],
         "walkNorth": [
             "NorthWalk1",
             "NorthWalk2",
