@@ -1120,38 +1120,6 @@
                 "y": 0
             }
         },
-        "NorthSword5": {
-            "frame": {
-                "x": 316,
-                "y": 0,
-                "w": 81,
-                "h": 67
-            },
-            "rotated": false,
-			"spriteSourceSize": { "x": 0, "y": 0, "w": 81, "h": 67 },
-			"sourceSize": { "w": 81, "h": 67 },
-            "trimmed": true,
-            "anchor": {
-                "x": 0,
-                "y": 0
-            }
-        },
-        "NorthSword6": {
-            "frame": {
-                "x": 316,
-                "y": 282,
-                "w": 78,
-                "h": 64
-            },
-            "rotated": false,
-			"spriteSourceSize": { "x": 0, "y": 0, "w": 78, "h": 64 },
-			"sourceSize": { "w": 78, "h": 64 },
-            "trimmed": true,
-            "anchor": {
-                "x": 0,
-                "y": 0
-            }
-        },
         "NorthSword1": {
             "frame": {
                 "x": 189,
@@ -1162,22 +1130,6 @@
             "rotated": false,
 			"spriteSourceSize": { "x": 0, "y": 0, "w": 38, "h": 48 },
 			"sourceSize": { "w": 38, "h": 48 },
-            "trimmed": true,
-            "anchor": {
-                "x": 0,
-                "y": 0
-            }
-        },
-        "NorthSword4": {
-            "frame": {
-                "x": 398,
-                "y": 0,
-                "w": 57,
-                "h": 49
-            },
-            "rotated": false,
-			"spriteSourceSize": { "x": 0, "y": 0, "w": 57, "h": 49 },
-			"sourceSize": { "w": 57, "h": 49 },
             "trimmed": true,
             "anchor": {
                 "x": 0,
@@ -1210,6 +1162,54 @@
             "rotated": false,
 			"spriteSourceSize": { "x": 0, "y": 0, "w": 43, "h": 48 },
 			"sourceSize": { "w": 43, "h": 48 },
+            "trimmed": true,
+            "anchor": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "NorthSword4": {
+            "frame": {
+                "x": 398,
+                "y": 0,
+                "w": 57,
+                "h": 49
+            },
+            "rotated": false,
+			"spriteSourceSize": { "x": 0, "y": 0, "w": 57, "h": 49 },
+			"sourceSize": { "w": 57, "h": 49 },
+            "trimmed": true,
+            "anchor": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "NorthSword5": {
+            "frame": {
+                "x": 316,
+                "y": 0,
+                "w": 81,
+                "h": 67
+            },
+            "rotated": false,
+			"spriteSourceSize": { "x": 0, "y": 0, "w": 81, "h": 67 },
+			"sourceSize": { "w": 81, "h": 67 },
+            "trimmed": true,
+            "anchor": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "NorthSword6": {
+            "frame": {
+                "x": 316,
+                "y": 282,
+                "w": 78,
+                "h": 64
+            },
+            "rotated": false,
+			"spriteSourceSize": { "x": 0, "y": 0, "w": 78, "h": 64 },
+			"sourceSize": { "w": 78, "h": 64 },
             "trimmed": true,
             "anchor": {
                 "x": 0,

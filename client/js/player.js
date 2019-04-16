@@ -13,7 +13,7 @@ class Player {
         // this.sprite = new PIXI.Sprite(PIXI.loader.resources['playerSheet'].textures['SouthWalk1']);
         this.sprite = new PIXI.extras.AnimatedSprite(this.sheet.animations['walkNorth']);
 
-        this.sprite.anchor.set(0.5, 0.5);
+        // this.sprite.anchor.set(0.5, 0.5);
         this.sprite.position.set(renderer.width * 0.2, renderer.height * 0.4);
         this.sprite.scale.set(2.4, 2.4);
 
@@ -27,6 +27,8 @@ class Player {
 
         this.fireSpeed = 10;
         this.fireCooldown = 0;
+
+        this.isAttacking = false;
 
         this.mouse = {
             x: 0,
@@ -46,10 +48,11 @@ class Player {
         let nextY = this.sprite.position.y + this.directionY * this.speed;
 
         // Prevent from leaving the screen
-        if (nextX > 0 && nextX < renderer.width) {
+        if (nextX > 0 && nextX < renderer.width && !this.isAttacking) {
             this.sprite.position.x = nextX;
         }
-        if (nextY > 0 && nextY < renderer.height) {
+
+        if (nextY > 0 && nextY < renderer.height && !this.isAttacking) {
             this.sprite.position.y = nextY;
         }
 
@@ -58,11 +61,11 @@ class Player {
     }
 
     updateFire() {
-        if (this.fireCooldown < this.fireSpeed)
+        if (this.fireCooldown < this.fireSpeed) {
             this.fireCooldown++;
+        }
 
-        if (this.keyState[32] && this.fireCooldown >= this.fireSpeed)
-        {
+        if (this.keyState[32] && this.fireCooldown >= this.fireSpeed) {
             let rocket = new Rocket(this.sprite.position.x, this.sprite.position.y);
             this.fireCooldown = 0;
         }
@@ -70,6 +73,7 @@ class Player {
 
     onKeyDown(key) {
         this.keyState[key.keyCode] = true;
+        this.sprite.loop = true;
 
         if (key.keyCode === 37) {
             this.sprite.textures = this.sheet.animations['walkWest'];
@@ -124,6 +128,8 @@ class Player {
     }
 
     mouseClick() {
+        this.isAttacking = true;
+
         switch (this.currentDirection) {
             case directions.NORTH: {
                 this.sprite.textures = this.sheet.animations.swordNorth;
@@ -146,10 +152,17 @@ class Player {
                 break;
             }
         }
-        
+
+        this.sprite.onComplete = () => {
+            this.isAttacking = false;
+        };
+
+        this.sprite.onFrameChange = (frame) => {
+            console.log(frame);
+        };
+
         this.sprite.loop = false;
         this.sprite.play();
-        
     }
 
     mouseMove(event) {
