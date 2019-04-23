@@ -1,5 +1,6 @@
 import stage from './stage';
-import Player from './player';
+import Player from './playerVersion2';
+import Controls from './controls';
 
 /*****************************************************
 
@@ -8,27 +9,25 @@ import Player from './player';
 *****************************************************/
 
 var cloudManager;
-var player;
+var controls;
 
 PIXI.loader
     .add('playerSheet', '../images/playerSheet.json')
     .load(init);
 
 
-function init()
-{
+function init() {
     renderer.backgroundColor = 0x22A7F0;
 
-    player = new Player();
+    controls = new Controls();
 
     renderer.render(stage);
 
     loop();
 }
 
-function loop()
-{
-    player.update();
+function loop() {
+    // player.update();
 
     requestAnimationFrame(loop);
     renderer.render(stage);

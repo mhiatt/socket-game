@@ -28,7 +28,7 @@ class Player {
         this.fireSpeed = 10;
         this.fireCooldown = 0;
 
-        this.isAttacking = false;
+        this.canMove = true;
 
         this.mouse = {
             x: 0,
@@ -48,11 +48,11 @@ class Player {
         let nextY = this.sprite.position.y + this.directionY * this.speed;
 
         // Prevent from leaving the screen
-        if (nextX > 0 && nextX < renderer.width && !this.isAttacking) {
+        if (nextX > 0 && nextX < renderer.width && this.canMove) {
             this.sprite.position.x = nextX;
         }
 
-        if (nextY > 0 && nextY < renderer.height && !this.isAttacking) {
+        if (nextY > 0 && nextY < renderer.height && this.canMove) {
             this.sprite.position.y = nextY;
         }
 
@@ -128,8 +128,9 @@ class Player {
     }
 
     mouseClick() {
-        this.isAttacking = true;
-
+        // const currentPosition = this.sprite.position.x;
+        this.canMove = false;
+        this.sprite.animationSpeed = 0.5;
         switch (this.currentDirection) {
             case directions.NORTH: {
                 this.sprite.textures = this.sheet.animations.swordNorth;
@@ -154,12 +155,44 @@ class Player {
         }
 
         this.sprite.onComplete = () => {
-            this.isAttacking = false;
+            this.canMove = true;
         };
 
-        this.sprite.onFrameChange = (frame) => {
-            console.log(frame);
-        };
+        // this.sprite.onFrameChange = (frame) => {
+        //     switch (frame) {
+        //         case 0: {
+        //             this.sprite.position.x = currentPosition + 1;
+
+        //             break;
+        //         }
+        //         case 1: {
+        //             this.sprite.position.x = currentPosition + 1;
+
+        //             break;
+        //         }
+        //         case 2: {
+        //             this.sprite.position.x = currentPosition + 1;
+
+        //             break;
+        //         }
+        //         case 3: {
+        //             this.sprite.position.x = currentPosition + 1;
+
+        //             break;
+        //         }
+        //         case 4: {
+        //             this.sprite.position.x = currentPosition + 1;
+
+        //             break;
+        //         }
+        //         case 5: {
+        //             this.sprite.position.x = currentPosition + 1;
+
+        //             break;
+        //         }
+        //     }
+        //     console.log(this.sprite.position.x);
+        // };
 
         this.sprite.loop = false;
         this.sprite.play();

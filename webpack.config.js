@@ -8,6 +8,7 @@ module.exports = {
         port: 3000,
         contentBase: path.resolve(__dirname, 'dist')
     },
+    devtool: 'source-map',
     entry: './client/js/main.js',
     output: {
         path: path.resolve(__dirname, 'dist'),

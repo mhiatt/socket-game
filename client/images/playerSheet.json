@@ -1224,8 +1224,24 @@
                 "h": 49
             },
             "rotated": false,
-			"spriteSourceSize": { "x": 0, "y": 0, "w": 50, "h": 49 },
+			"spriteSourceSize": { "x": -26, "y": 0, "w": 50, "h": 49 },
 			"sourceSize": { "w": 50, "h": 49 },
+            "trimmed": true,
+            "anchor": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "WestSword2": {
+            "frame": {
+                "x": 232,
+                "y": 265,
+                "w": 26,
+                "h": 47
+            },
+            "rotated": false,
+			"spriteSourceSize": { "x": 1, "y": 0, "w": 26, "h": 47 },
+			"sourceSize": { "w": 26, "h": 47 },
             "trimmed": true,
             "anchor": {
                 "x": 0,
@@ -1256,7 +1272,7 @@
                 "h": 49
             },
             "rotated": false,
-			"spriteSourceSize": { "x": 0, "y": 0, "w": 46, "h": 49 },
+			"spriteSourceSize": { "x": -11, "y": 0, "w": 46, "h": 49 },
 			"sourceSize": { "w": 46, "h": 49 },
             "trimmed": true,
             "anchor": {
@@ -1272,7 +1288,7 @@
                 "h": 49
             },
             "rotated": false,
-			"spriteSourceSize": { "x": 0, "y": 0, "w": 102, "h": 49 },
+			"spriteSourceSize": { "x": -69, "y": 0, "w": 102, "h": 49 },
 			"sourceSize": { "w": 102, "h": 49 },
             "trimmed": true,
             "anchor": {
@@ -1288,24 +1304,8 @@
                 "h": 49
             },
             "rotated": false,
-			"spriteSourceSize": { "x": 0, "y": 0, "w": 69, "h": 49 },
+			"spriteSourceSize": { "x": -44, "y": 0, "w": 69, "h": 49 },
 			"sourceSize": { "w": 69, "h": 49 },
-            "trimmed": true,
-            "anchor": {
-                "x": 0,
-                "y": 0
-            }
-        },
-        "WestSword2": {
-            "frame": {
-                "x": 232,
-                "y": 265,
-                "w": 26,
-                "h": 47
-            },
-            "rotated": false,
-			"spriteSourceSize": { "x": 0, "y": 0, "w": 26, "h": 47 },
-			"sourceSize": { "w": 26, "h": 47 },
             "trimmed": true,
             "anchor": {
                 "x": 0,
