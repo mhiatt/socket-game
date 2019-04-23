@@ -9,7 +9,8 @@ import Controls from './controls';
 *****************************************************/
 
 var cloudManager;
-var controls;
+let controls;
+let player;
 
 PIXI.loader
     .add('playerSheet', '../images/playerSheet.json')
@@ -20,6 +21,7 @@ function init() {
     renderer.backgroundColor = 0x22A7F0;
 
     controls = new Controls();
+    player = new Player();
 
     renderer.render(stage);
 
@@ -27,7 +29,8 @@ function init() {
 }
 
 function loop() {
-    // player.update();
+    console.log(controls.movement);
+    player.update(controls.movement);
 
     requestAnimationFrame(loop);
     renderer.render(stage);

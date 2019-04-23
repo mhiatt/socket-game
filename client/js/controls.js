@@ -34,6 +34,7 @@ class Controls {
 
         this.sprite.interactive = true;
 
+        this.movement = {};
         // this.onTouch = this.onTouch.bind(this);
         // this.setAngle = this.setAngle.bind(this);
 
@@ -87,6 +88,13 @@ class Controls {
             const y = radius * Math.cos(angle);
             const x = radius * Math.sin(angle);
 
+            this.movement = {
+                angle,
+                radius,
+                x,
+                y
+            };
+
             this.sprite.position.set(this.cX + x, this.cY - y);
         }
     }
@@ -101,6 +109,14 @@ class Controls {
         // console.log(50 * Math.cos(angle));
         // console.log(50 * Math.sin(angle));
         return angle;
+    }
+
+    get movement() {
+        return this._movement;
+    }
+
+    set movement(movement) {
+        return this._movement = movement;
     }
 }
 
